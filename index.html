@@ -264,31 +264,31 @@
                 </div>
 
                 <script>
-                  
-                  const lennyFace = document.querySelector(".lenny-face");
+					var pupils = document.querySelectorAll(".pupil");
+					const lennyFace = document.querySelector(".lenny-face");
 
-                  window.addEventListener("mousemove", (e) => {
-                    // Проверка: если лицо скрыто ховером, не пересчитываем координаты зрачков
-                    if (getComputedStyle(lennyFace).visibility !== "hidden") {
-                      pupils.forEach((pupil) => {
-                        const rect = pupil.getBoundingClientRect();
-                        const pupilX = rect.left + rect.width / 2;
-                        const pupilY = rect.top + rect.height / 2;
+					window.addEventListener("mousemove", (e) => {
+					// Проверка: если лицо скрыто ховером, не пересчитываем координаты зрачков
+					if (getComputedStyle(lennyFace).visibility !== "hidden") {
+					pupils.forEach((pupil) => {
+					const rect = pupil.getBoundingClientRect();
+					const pupilX = rect.left + rect.width / 2;
+					const pupilY = rect.top + rect.height / 2;
 
-                        const angle = Math.atan2(
-                          e.clientY - pupilY,
-                          e.clientX - pupilX,
-                        );
-                        const maxDistance = 3; /* Ваша дистанция хода зрачка */
+					const angle = Math.atan2(
+					e.clientY - pupilY,
+					e.clientX - pupilX,
+					);
+					const maxDistance = 3; /* Ваша дистанция хода зрачка */
 
-                        const moveX = Math.cos(angle) * maxDistance;
-                        const moveY = Math.sin(angle) * maxDistance;
+					const moveX = Math.cos(angle) * maxDistance;
+					const moveY = Math.sin(angle) * maxDistance;
 
-                        pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                      });
-                    }
-                  });
-                </script>
+					pupil.style.transform = `translate(${moveX}px, ${moveY}px)`;
+					});
+					}
+					});
+				</script>
               </div>
             </h1>
           </div>
